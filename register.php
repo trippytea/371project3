@@ -1,6 +1,6 @@
 <?php 
 include 'db.php'; //connect to database
-
+include 'nav.php'; //nav-bar
 if (isset( $_POST['submit'] )) {
     $name = $_POST['name'];
     $result = $db->query("SELECT username FROM users WHERE username = '$name'");
@@ -56,10 +56,11 @@ if (isset( $_POST['submit'] )) {
 </head>
 
 <body>
+<img src="images\w-logo.png" class="mx-auto d-flex pt-5 pb-0" width="110px" height="auto" alt="wiki-woo logo">
     <div class="d-flex justify-content-center mx-auto">
 
     <form method="post" class="registerForm">
-        <h1 class="mt-4 mb-3 centerContent ">Register User</h1>
+        <h1 class="mt-3 mb-3 centerContent ">Register User</h1>
         <?=$promptMessage()?> <!--call prompt message function-->
         <div class="form-outline mb-2">
             <input type="text" name="name" id="name" class="form-control form-control-lg" required/>
@@ -79,11 +80,12 @@ if (isset( $_POST['submit'] )) {
         </div>
 
             <button class="btn-primary btn-lg btn-block mb-3" type="submit" name='submit' value='Login'>Register</button>
-
+        <!-- additional links
             <br>
             <a href="index.php" style="text-decoration:none" class="mt-3">Home</a>
             <span>&nbsp</span>
             <a href="login.php" style="text-decoration:none" class="mt-3">Log In</a>
+        -->
         </form>
         
     </div>
