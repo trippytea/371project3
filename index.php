@@ -11,7 +11,7 @@ function getRecentArticles ($db) {
         echo "
               <h6>$title</h6>
               <div class='articlePrev mb-4'> 
-              <p>$bodyPrev . . .</p>
+              <p class='mb-2'>$bodyPrev . . .</p>
               <a href='wiki.php?short_title=$shortTitle'>Read More</a>
               </div>";
     }
@@ -68,7 +68,7 @@ function getRecentArticles ($db) {
             <div class="articleBox mb-4 mx-4">
                 <h2>Sign Up</h2>
                 <p>Dont have an account? <br>Click here to sign up!</p>
-                <a href="addarticle.php"><button class="btn-primary btn-lg btn-block mb-3">Sign Up</button></a>
+                <a href="register.php"><button class="btn-primary btn-lg btn-block mb-3">Sign Up</button></a>
             </div>
         </div> <!--col end-->
     </div> <!--row end-->
