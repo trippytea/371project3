@@ -6,7 +6,6 @@ if (isset( $_POST['submit'] )) {
     $result = $db->query("SELECT username FROM users WHERE username = '$name'");
     if ($result == true) {
         $rows = mysqli_fetch_assoc($result); 
-    
 
         if (!$rows) {
             $password = $_POST['password'];
