@@ -26,7 +26,7 @@ function is_password_correct ($name, $password, $db) {
 #if $_SESSION['name'] is not set, redirect to login page
 function ensure_logged_in() {
     if (!isset($_SESSION["name"])) {
-      header("Location: login.php");
+      header("Location: login.php?loginReq");
       exit();
     }
   }
