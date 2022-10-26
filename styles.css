@@ -105,19 +105,30 @@ a:hover {
     color: #E5BD06;
   }
 
-
 .articlePrev {
   width:400px;
   padding:15px;
   margin-bottom:1%;
   background-color:rgb(229, 236, 238);
   border-radius:4px;
-
 }
+
 .articlePrev p {
   margin-bottom:0;
   padding-top:3px;
-  padding-bottom:3px;
+}
+
+.articleFull {
+  width:500px;
+  padding:15px;
+  margin-bottom:1%;
+  background-color:rgb(229, 236, 238);
+  border-radius:4px;
+}
+
+.articleFull p {
+  margin-bottom:0;
+  padding-top:3px;
 }
 
 .articlePrev a {
