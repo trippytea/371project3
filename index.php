@@ -7,11 +7,12 @@ function getRecentArticles ($db) {
     foreach ($result as $row) {
         $title = $row[1];
         $bodyPrev = substr($row[2],0,130);
+        $shortTitle = $row[4];
         echo "
               <h6>$title</h6>
               <div class='articlePrev mb-4'> 
               <p>$bodyPrev . . .</p>
-              <a href='wiki.php'>Read More</a>
+              <a href='wiki.php?short_title=$shortTitle'>Read More</a>
               </div>";
     }
 }
