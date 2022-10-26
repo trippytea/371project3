@@ -14,10 +14,10 @@
                 <div class="navbar-nav">
                     <a href="index.php" class="nav-item nav-link">Home</a>
                     <a href="addarticle.php" class="nav-item nav-link">Add Article</a>
+                    <a href="register.php" class="nav-item nav-link">Sign up</a> 
 
                 </div>
                 <div class="navbar-nav ms-auto">         
-                    <a href="register.php" class="nav-item nav-link">Register User</a>  
                     <a href="login.php" class="nav-item nav-link">Log In</a>   	
                     <a href="logout.php" class="nav-item nav-link">Log Out</a>
                 </div>
