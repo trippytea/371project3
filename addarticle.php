@@ -23,6 +23,8 @@
 <!--php outputs body element-->
 <?php 
 include 'db.php';
+include 'nav.php'; //nav-bar
+
 ensure_logged_in();
 mysqli_report(MYSQLI_REPORT_STRICT);
 
@@ -57,18 +59,19 @@ if (isset($_POST['addArticleButton'])){
         $db, $_REQUEST['articleTitle']);
         $articleBody = mysqli_real_escape_string(
         $db, $_REQUEST['articleBody']);
+        $name = $_SESSION['name'];
         
-        $sql = "INSERT INTO team (articeTitle, articelBody, username)
-        VALUES ('$articleTitle','$articleBody','$_SESSION["name"]')";
+        $sql = "INSERT INTO article (articleTitle, articleBody, username)
+        VALUES ('$articleTitle','$articleBody','$name')";
 
         #ERROR MESSAGE
         # attempts the sql insert, if it fails the uniqueError is set
         if(mysqli_query($db, $sql)){
-            #header("location:create-teams.php?teamAdded");
+            header("location:addArticle.php?articleAdded");
             exit();
         } else {
             if(mysqli_errno($db) == 1062)
-            #header("location:create-teams.php?duplicateTeam");
+            header("location:.php?articleError");
             exit();
         }
     } 
@@ -79,14 +82,14 @@ if (isset($_POST['addArticleButton'])){
         <h1 style='margin-left: 10px;margin-top: 15px'>Add New Article</h1>
         <?=$promptMessage();?>
 
-        <form style='margin-left: 15px' id='createteams' action='create-teams.php' method='POST'>
+        <form style='margin-left: 15px' id='createArticle' action='addArticle.php' method='POST'>
             <span> Article Title </span><br>
             <input type='text' id='articleTitle' name='articleTitle'
             placeholder='Enter a title for the article' required>
             <br><br>
             <span> Article Body </span><br>
             <!-- i wonder if we could use a template for a text editor box -->
-            <textarea type='text' id='articleBody' name='articleBody'>
+            <textarea type='text' id='articleBody' name='articleBody'></textarea>
             <br><br>
             <input class='Add navbar-dark navbar-brand ' type='submit' id='addArticleButton' name='addArticleButton' value='Add'>
         </form>

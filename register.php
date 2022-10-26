@@ -4,7 +4,11 @@ include 'nav.php'; //nav-bar
 if (isset( $_POST['submit'] )) {
     $name = $_POST['name'];
     $result = $db->query("SELECT username FROM users WHERE username = '$name'");
+    if ($result == true) {
+        
+    
     $rows = mysqli_fetch_assoc($result); 
+    
 
     if (!$rows) {
         $password = $_POST['password'];
@@ -19,6 +23,7 @@ if (isset( $_POST['submit'] )) {
             header("location: register.php?newUserSuccess");
             exit();
         }
+    }
         else {
             header("location: register.php?errp");
             exit();
