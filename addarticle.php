@@ -1,5 +1,3 @@
-
-
 <!--php outputs body element-->
 <?php 
 include 'db.php';
