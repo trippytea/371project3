@@ -85,13 +85,13 @@ if (isset($_POST['addArticleButton'])){
         <?=$promptMessage();?>
 
         <form style='margin-left: 15px' id='createArticle' action='addArticle.php' method='POST'>
-            <span> Article Title </span><br>
+            <span>Title </span><br>
             <input type='text' id='articleTitle' name='articleTitle'
             placeholder='Enter a title for the article' required>
             <br><br>
-            <span> Article Short Title </span><br>
-            <input type='text' id='short_title' name='short_title'
-            placeholder='Enter a short title for the article' required>
+            <span>Short Title </span><br>
+            <input type='text' id='short_title' name='short_title' style="width:150px;"
+            placeholder='Enter a short title.' maxlength="16" required>
             <br><br>
             <span> Article Body </span><br>
             <!-- i wonder if we could use a template for a text editor box -->
