@@ -16,7 +16,7 @@ function getRecentArticles ($db) {
     }
 }
 ?>
-
+ 
 <!--php ends-->
 <!DOCTYPE html>
 <html lang="en-us">
