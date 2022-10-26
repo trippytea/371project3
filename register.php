@@ -5,35 +5,33 @@ if (isset( $_POST['submit'] )) {
     $name = $_POST['name'];
     $result = $db->query("SELECT username FROM users WHERE username = '$name'");
     if ($result == true) {
-        
-    
-    $rows = mysqli_fetch_assoc($result); 
+        $rows = mysqli_fetch_assoc($result); 
     
 
-    if (!$rows) {
-        $password = $_POST['password'];
-        $password_confirm = $_POST['password_confirm'];
-    
-        if ($password == $password_confirm) {
-            $password_hash = password_hash($password_confirm, PASSWORD_DEFAULT);
-    
-            $registerPrep = $db -> prepare("INSERT INTO users(username, password) VALUES (?, ?)");
-            $registerPrep -> bind_param("ss", $name, $password_hash);
-            $registerPrep -> execute();
-            header("location: register.php?newUserSuccess");
-            exit();
-        }
-    }
+        if (!$rows) {
+            $password = $_POST['password'];
+            $password_confirm = $_POST['password_confirm'];
+        
+            if ($password == $password_confirm) {
+                $password_hash = password_hash($password_confirm, PASSWORD_DEFAULT);
+        
+                $registerPrep = $db -> prepare("INSERT INTO users(username, password) VALUES (?, ?)");
+                $registerPrep -> bind_param("ss", $name, $password_hash);
+                $registerPrep -> execute();
+                header("location: register.php?newUserSuccess");
+                exit();
+            }
+
         else {
             header("location: register.php?errp");
             exit();
           }
+        }
+        else {
+            header("location: register.php?duplicateUser");
+            exit();
+        }
     }
-    
-    else {
-        header("location: register.php?duplicateUser");
-        exit();
-      }
 }
 ?> <!--php ends-->
 
