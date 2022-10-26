@@ -59,18 +59,18 @@ function getRecentArticles ($db) {
     <div class="col 4"> 
             <div class="articleBox mb-4 mx-4">
                 <h2>Add Article</h2>
-                <p>You must be logged in to add an article to Wiki Woo.</p>
+                <p style='width:200px'>You must be logged in to add an article to Wiki Woo.</p>
                 <a href="addarticle.php"><button class="btn-primary btn-lg btn-block mb-3">Add Article</button></a>
             </div>
-        </div> <!--col end-->
 
-    <div class="col 4"> 
+
+
             <div class="articleBox mb-4 mx-4">
                 <h2>Sign Up</h2>
                 <p>Dont have an account? <br>Click here to sign up!</p>
                 <a href="register.php"><button class="btn-primary btn-lg btn-block mb-3">Sign Up</button></a>
             </div>
-        </div> <!--col end-->
+            </div> <!--col end-->
     </div> <!--row end-->
 
     <!-- Bootstrap JS Bundle for nav -->
