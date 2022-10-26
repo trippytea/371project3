@@ -87,17 +87,17 @@ if (isset($_POST['addArticleButton'])){
         <?=$promptMessage();?>
 
         <form style='margin-left: 15px' id='createArticle' action='addArticle.php' method='POST'>
-            <span> Article Title </span><br>
-            <input style='width: 500px' type='text' id='articleTitle' name='articleTitle' required>
+            <span> <strong>Article Short Title</strong></span><br>
+            <input style='width: 155px' type='text' id='short_title' name='short_title' maxlength='16' required>
             <br><br>
-            <span> Article Short Title </span><br>
-            <input style='width: 500px' type='text' id='short_title' name='short_title' required>
+            <span> <strong>Article Title</strong> </span><br>
+            <input style='width: 30%;' type='text' id='articleTitle' name='articleTitle' required>
             <br><br>
-            <span> Article Body </span><br>
+            <span> <strong>Article Body</strong> </span><br>
             <!-- i wonder if we could use a template for a text editor box -->
-            <textarea type='text' style='width: 98%;   height: 250px' id='articleBody' name='articleBody'></textarea>
+            <textarea type='text' style='width: 30%;   height: 250px' id='articleBody' name='articleBody'></textarea>
             <br><br>
-            <input class='Add navbar-dark navbar-brand ' type='submit' id='addArticleButton' name='addArticleButton' value='Add'>
+            <button class="btn-primary btn-lg btn-block mb-3" type="submit" id='addArticleButton' name='addArticleButton' value='Add'>Add</button>
         </form>
     </div>
 
