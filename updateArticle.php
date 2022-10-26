@@ -36,7 +36,7 @@ $row = mysqli_fetch_array($article);
         <h1 style='margin-left: 10px;margin-top: 15px'>Update Article</h1>
         <?=$promptMessage();?>
 
-        <form style='margin-left: 15px' id='createArticle' action='addArticle.php' method='POST'>
+        <form style='margin-left: 15px' id='createArticle' action='updateArticle.php' method='POST'>
             <span> New/Existing Title </span><br>
             <input style='width: 500px' type='text' id='articleTitle' name='articleTitle' required>
             <br><br>
@@ -60,8 +60,13 @@ $row = mysqli_fetch_array($article);
 if (isset($_POST['addArticleButton'])){
     $articleTitle = $_POST['articleTitle'];
     $articleBody = $_POST['articleBody'];
-	$updateSql = "UPDATE article SET articleTitle='$articleTitle', articleBody='$articleBody' WHERE articleId=1";
-    echo $updateSql;
+	$updateSql = "update article set articleTitle='$articleTitle',articleBody='$articleBody' WHERE articleTitle='$articleTitle'";
 	$updatedArticle = mysqli_query($db, $updateSql);
+    ?>
+    <script type="text/javascript">
+    window.location="updateArticle.php?updateteamsuccess";
+    </script>
+    <?php
+    
 }
-?>
+    ?>
