@@ -49,4 +49,9 @@ $promptMessage = function() {
     $message = "Registered new user successfully!";
     echo "<div class='alert alert-success mt-3 mx-auto text-center' role='alert'>".$message."</div>";
 }
+
+  if (isset($_GET['articleAdded'])) {
+    $message = "Article added successfully!";
+    echo "<div class='alert alert-success mt-3 mx-auto text-center' role='alert'>".$message."</div>";
+  }
 };
