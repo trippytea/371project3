@@ -58,7 +58,10 @@ $row = mysqli_fetch_array($article);
 </html>
 <?php
 if (isset($_POST['addArticleButton'])){
-	$updateSql = "UPDATE article SET articleTitle='$_POST['articleTitle']',articleBody='$_POST['articleBody']' WHERE articleId=1";
+    $articleTitle = $_POST['articleTitle'];
+    $articleBody = $_POST['articleBody'];
+	$updateSql = "UPDATE article SET articleTitle='$articleTitle', articleBody='$articleBody' WHERE articleId=1";
+    echo $updateSql;
 	$updatedArticle = mysqli_query($db, $updateSql);
 }
 ?>
