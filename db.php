@@ -63,5 +63,5 @@ $promptMessage = function() {
     $message = "Article added successfully!";
     echo "<div class='alert alert-success mt-3 mx-auto text-center' role='alert'>".$message."</div>";
   }
-
+  }
 };
