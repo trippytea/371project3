@@ -1,5 +1,3 @@
-
-
 <!--php outputs body element-->
 <?php 
 include 'db.php';
@@ -19,7 +17,7 @@ if (isset($_POST['addArticleButton'])){
     }
 
     # required fields
-    $required = array('articleTitle', 'articleBody');
+    $required = array('articleTitle', 'articleBody', 'short_title');
 
     # checks required fields, sets empty var to true if one is empty
     foreach($required as $field) {
@@ -39,10 +37,12 @@ if (isset($_POST['addArticleButton'])){
         $db, $_REQUEST['articleTitle']);
         $articleBody = mysqli_real_escape_string(
         $db, $_REQUEST['articleBody']);
+        $short_title = mysqli_real_escape_string(
+        $db, $_REQUEST['short_title']);
         $name = $_SESSION['name'];
         
-        $sql = "INSERT INTO article (articleTitle, articleBody, username)
-        VALUES ('$articleTitle','$articleBody','$name')";
+        $sql = "INSERT INTO article (articleTitle, articleBody, username, shortTitle)
+        VALUES ('$articleTitle','$articleBody','$name', '$short_title')";
 
         #ERROR MESSAGE
         # attempts the sql insert, if it fails the uniqueError is set
@@ -51,7 +51,7 @@ if (isset($_POST['addArticleButton'])){
             exit();
         } else {
             if(mysqli_errno($db) == 1062)
-            header("location:.php?articleError");
+            header("location:ArticleError.php?articleError");
             exit();
         }
     } 
@@ -89,15 +89,18 @@ if (isset($_POST['addArticleButton'])){
             <input type='text' id='articleTitle' name='articleTitle'
             placeholder='Enter a title for the article' required>
             <br><br>
+            <span> Article Short Title </span><br>
+            <input type='text' id='short_title' name='short_title'
+            placeholder='Enter a short title for the article' required>
+            <br><br>
             <span> Article Body </span><br>
             <!-- i wonder if we could use a template for a text editor box -->
-            <textarea type='text' id='articleBody' name='articleBody' rows="10" cols="50"></textarea>
+            <textarea type='text' id='articleBody' name='articleBody'></textarea>
             <br><br>
-            <button class="btn-primary btn-lg btn-block" type='submit' id='addArticleButton' name='addArticleButton' value='Add'>Add</button>
+            <input class='Add navbar-dark navbar-brand ' type='submit' id='addArticleButton' name='addArticleButton' value='Add'>
         </form>
     </div>
 
-    
     <!-- Bootstrap JS Bundle with Popper ***needed for navbar collapse*** -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
