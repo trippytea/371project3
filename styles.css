@@ -17,11 +17,15 @@ footer {
   background-color:#1D3461;
 }
 
-h1 {
+h1,h6 {
   font-weight: 550;
   color: #1D3461;
 }
 
+h2 {
+  font-weight: 550;
+  color: #3BB3C2;
+}
 /* Modify the nav bar*/    
 .navbar-dark {background-color: #1D3461 !important;}
 
@@ -101,15 +105,23 @@ a:hover {
     color: #E5BD06;
   }
 
-  @media screen and (max-width: 800px) { 
-  .smallFont {
-  font-size:x-small;
-  }
-  .tableView {
-    width: 95%;
-    overflow:scroll;
-    margin-left:2%;
-    margin-right:5%;
-  }
+
+.articlePrev {
+  width:400px;
+  padding:15px;
+  margin-bottom:1%;
+  background-color:rgb(229, 236, 238);
+  border-radius:4px;
 
 }
+.articlePrev p {
+  margin-bottom:0;
+  padding-top:3px;
+  padding-bottom:3px;
+}
+
+.articlePrev a {
+  text-decoration: none; 
+  display: block;
+}
+
