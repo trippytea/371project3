@@ -11,10 +11,11 @@ function outputArticle ($db) {
         $title = $result['articleTitle'];
         $body = $result['articleBody'];
         echo 
-        "<h2>$title</h6>
-        <div class='articleFull mb-4'> 
-        <p>$body</p>
-        </div><a href='index.php' style='text-decoration:none;'>Click here to return home</a>";
+        "<h2 class='mb-3 mx-auto' style='width:500px'>$title</h6>
+        <div class='articleFull mb-4 mx-auto'> 
+        <p class='mb-3'>$body</p>
+        <a href='index.php' style='text-decoration:none;'>Click here to return home</a>
+        </div>";
     }
     else {
         echo "<h2>No article found.</h2><a href='index.php' style='text-decoration:none;'>Click here to return home</a>";
