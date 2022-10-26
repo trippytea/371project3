@@ -56,7 +56,7 @@ $promptMessage = function() {
   }
 
   if (isset($_GET['loginReq'])) {
-    $message = "You must be logged in to add an article.";
+    $message = "You must be logged in.";
     echo "<div class='alert alert-danger mt-3 mx-auto text-center' role='alert'>".$message."</div>";
 
   if (isset($_GET['articleError'])) {
