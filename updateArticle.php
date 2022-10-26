@@ -37,10 +37,13 @@ $row = mysqli_fetch_array($article);
         <?=$promptMessage();?>
 
         <form style='margin-left: 15px' id='createArticle' action='updateArticle.php' method='POST'>
-            <span> New/Existing Title </span><br>
+        <span> Enter the name of the article you want to change below: </span><br>
             <input style='width: 500px' type='text' id='articleTitle' name='articleTitle' required>
             <br><br>
-            <span> New/Exisiting Short Title </span><br>
+            <span> Edit Title </span><br>
+            <input style='width: 500px' type='text' id='newArticleTitle' name='newArticleTitle' required>
+            <br><br>
+            <span> Edit Short Title </span><br>
             <input style='width: 500px' type='text' id='short_title' name='short_title' required>
             <br><br>
             <span> Edit Article Body </span><br>
@@ -59,8 +62,10 @@ $row = mysqli_fetch_array($article);
 <?php
 if (isset($_POST['addArticleButton'])){
     $articleTitle = $_POST['articleTitle'];
+    $newArticleTitle = $_POST['newArticleTitle'];
     $articleBody = $_POST['articleBody'];
-	$updateSql = "update article set articleTitle='$articleTitle',articleBody='$articleBody' WHERE articleTitle='$articleTitle'";
+    $shortTitle = $_POST['short_title'];
+	$updateSql = "update article set articleTitle='$newArticleTitle',articleBody='$articleBody',shortTitle='$shortTitle' WHERE articleTitle='$articleTitle'";
 	$updatedArticle = mysqli_query($db, $updateSql);
     ?>
     <script type="text/javascript">
