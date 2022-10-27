@@ -68,12 +68,6 @@ if (is_password_correct($name, $password, $db)) {
         </div>
             <button class="btn-primary btn-lg btn-block mb-3" type="submit" name='submit' value='Login'>Login</button>
             <br>Need an account?<a href="register.php" style="text-decoration:none;"> Sign up here</a>
-        <!-- additional links
-            <br>
-            <a href="index.php" style="text-decoration:none" class="mt-3">Home</a>
-            <span>&nbsp</span>
-            <a href="register.php" style="text-decoration:none" class="mt-3">Register User</a>
-        -->
         </form>
        
     </div>
