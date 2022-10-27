@@ -94,10 +94,11 @@ if (isset($_POST['addArticleButton'])){
             <input style='width: 30%;' type='text' id='articleTitle' name='articleTitle' required>
             <br><br>
             <span> <strong>Article Body</strong> </span><br>
-            <!-- i wonder if we could use a template for a text editor box -->
+
             <textarea type='text' style='width: 30%;   height: 250px' id='articleBody' name='articleBody'></textarea>
             <br><br>
             <button class="btn-primary btn-lg btn-block mb-3" type="submit" id='addArticleButton' name='addArticleButton' value='Add'>Add</button>
+            <br><a href="index.php" style="text-decoration:none;"> Click here to return home</a>
         </form>
     </div>
 
