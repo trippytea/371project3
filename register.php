@@ -82,12 +82,8 @@ if (isset( $_POST['submit'] )) {
         </div>
 
             <button class="btn-primary btn-lg btn-block mb-3" type="submit" name='submit' value='Login'>Register</button>
-        <!-- additional links
-            <br>
-            <a href="index.php" style="text-decoration:none" class="mt-3">Home</a>
-            <span>&nbsp</span>
-            <a href="login.php" style="text-decoration:none" class="mt-3">Log In</a>
-        -->
+            <br><a href="login.php" style="text-decoration:none;"> Click here to log in</a>
+       
         </form>
         
     </div>
