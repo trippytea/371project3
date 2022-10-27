@@ -6,7 +6,7 @@ CREATE TABLE users (
 
 CREATE TABLE article (
     articleId int NOT NULL AUTO_INCREMENT,
-    articleTitle CHAR(150) NOT NULL,
+    articleTitle CHAR(200) NOT NULL,
     shortTitle CHAR(16) NOT NULL,
     articleBody LONGTEXT,
     username VARCHAR(60) NOT NULL,
