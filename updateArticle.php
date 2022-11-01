@@ -4,6 +4,7 @@ include 'nav.php'; //nav-bar
 
 ensure_logged_in();
 mysqli_report(MYSQLI_REPORT_STRICT);
+
 $sql = "SELECT articleBody FROM article";
 $article = mysqli_query($db, $sql);
 $row = mysqli_fetch_array($article);
