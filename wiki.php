@@ -21,7 +21,7 @@ function outputArticle ($db) {
         <br></br>
         <form action='updateArticle.php' method='GET'>
         <input type='hidden' name='short_title' value='$shortTitle'>
-        <input type='submit' name='edit' value='edit'>
+        <button class='btn-primary btn-lg btn-block mb-3' type='submit' id='addArticleButton' name='addArticleButton' value='Update'>Update</button>
         </form>
         </div>";
     }

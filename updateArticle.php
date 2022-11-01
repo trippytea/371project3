@@ -58,7 +58,7 @@ $row = mysqli_fetch_array($article);
             <textarea type='text' style='width: 98%;   height: 250px' id='articleBody' name='articleBody'><?=$row['articleBody']?></textarea>
             <br><br>
             <input class='Add navbar-dark navbar-brand ' type='hidden' id='articleTitle' name='articleTitle' value='<?=$row['articleTitle']?>'>
-            <input class='Add navbar-dark navbar-brand ' type='submit' id='addArticleButton' name='addArticleButton' value='Update Article'>
+            <button class="btn-primary btn-lg btn-block mb-3" type="submit" id='addArticleButton' name='addArticleButton' value='Add'>Update</button>
         </form>
     </div>
 
