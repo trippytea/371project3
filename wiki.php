@@ -10,9 +10,11 @@ function outputArticle ($db) {
     $result = mysqli_fetch_assoc($db -> query ("SELECT * FROM article where shortTitle = '$shortTitle'"));
         $title = $result['articleTitle'];
         $body = $result['articleBody'];
+        $user = $result['username'];
         echo 
         "<h2 class='mb-3 mx-auto' style='width:500px'>$title</h6>
-        <div class='articleFull mb-4 mx-auto'> 
+        <div class='articleFull mb-4 mx-auto'>
+        <p style='color: #3BB3C2'>Written by $user</p> 
         <p class='mb-3'>$body</p>
         <a href='index.php' style='text-decoration:none;'>Click here to return home</a>
         </div>";

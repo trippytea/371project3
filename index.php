@@ -6,11 +6,13 @@ function getRecentArticles ($db) {
     $result = mysqli_fetch_all($db -> query ("SELECT * FROM article"));
     foreach ($result as $row) {
         $title = $row[1];
-        $bodyPrev = substr($row[2],0,130);
+        $bodyPrev = substr($row[3],0,130);
         $shortTitle = $row[2];
+        $user = $row[4];
         echo "
               <h6>$title</h6>
               <div class='articlePrev mb-4'> 
+              <p style='color: #3BB3C2'>Written by $user</p>
               <p class='mb-2'>$bodyPrev . . .</p>
               <a href='wiki.php?short_title=$shortTitle'>Read More</a>
               </div>";
