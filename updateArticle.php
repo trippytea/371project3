@@ -5,7 +5,7 @@ include 'nav.php'; //nav-bar
 ensure_logged_in();
 mysqli_report(MYSQLI_REPORT_STRICT);
 
-$sql = "SELECT articleBody FROM article";
+$sql = "SELECT * FROM article";
 $article = mysqli_query($db, $sql);
 $row = mysqli_fetch_array($article);
 ?>
@@ -38,14 +38,14 @@ $row = mysqli_fetch_array($article);
         <?=$promptMessage();?>
 
         <form style='margin-left: 15px' id='createArticle' action='updateArticle.php' method='POST'>
-        <span> Enter the name of the article you want to change below: </span><br>
+        <!--<span> Enter the name of the article you want to change below: </span><br>
             <input style='width: 500px' type='text' id='articleTitle' name='articleTitle' required>
-            <br><br>
+            <br><br>-->
             <span> Edit Title </span><br>
-            <input style='width: 500px' type='text' id='newArticleTitle' name='newArticleTitle' required>
+            <textarea style='width: 500px' type='text' id='newArticleTitle' name='newArticleTitle' required><?=$row['articleTitle']?></textarea>
             <br><br>
             <span> Edit Short Title </span><br>
-            <input style='width: 500px' type='text' id='short_title' name='short_title' required>
+            <textarea style='width: 500px' type='text' id='short_title' name='short_title' required><?=$row['shortTitle']?></textarea>
             <br><br>
             <span> Edit Article Body </span><br>
             <!-- i wonder if we could use a template for a text editor box -->

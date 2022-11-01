@@ -14,7 +14,7 @@
                 <div class="navbar-nav">
                     <a href="index.php" class="nav-item nav-link">Home</a>
                     <a href="addarticle.php" class="nav-item nav-link">Add Article</a>
-                    <a href="updateArticle.php" class="nav-item nav-link">Update Article</a> 
+                    <!--<a href="updateArticle.php" class="nav-item nav-link">Update Article</a> -->
                     <a href="register.php" class="nav-item nav-link">Sign up</a>
                      
 
