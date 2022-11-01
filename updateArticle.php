@@ -4,8 +4,14 @@ include 'nav.php'; //nav-bar
 
 ensure_logged_in();
 mysqli_report(MYSQLI_REPORT_STRICT);
+if (isset ($_GET['short_title'])) { 
+    $shortTitle = $_GET['short_title'];
+}
+if (isset ($_POST['short_title'])) { 
+    $shortTitle = $_POST['short_title'];
+}
 
-$sql = "SELECT * FROM article";
+$sql = "SELECT * FROM article WHERE shortTitle = '$shortTitle'";
 $article = mysqli_query($db, $sql);
 $row = mysqli_fetch_array($article);
 ?>
@@ -51,6 +57,7 @@ $row = mysqli_fetch_array($article);
             <!-- i wonder if we could use a template for a text editor box -->
             <textarea type='text' style='width: 98%;   height: 250px' id='articleBody' name='articleBody'><?=$row['articleBody']?></textarea>
             <br><br>
+            <input class='Add navbar-dark navbar-brand ' type='hidden' id='articleTitle' name='articleTitle' value='<?=$row['articleTitle']?>'>
             <input class='Add navbar-dark navbar-brand ' type='submit' id='addArticleButton' name='addArticleButton' value='Update Article'>
         </form>
     </div>
@@ -68,9 +75,10 @@ if (isset($_POST['addArticleButton'])){
     $shortTitle = $_POST['short_title'];
 	$updateSql = "update article set articleTitle='$newArticleTitle',articleBody='$articleBody',shortTitle='$shortTitle' WHERE articleTitle='$articleTitle'";
 	$updatedArticle = mysqli_query($db, $updateSql);
+    
     ?>
     <script type="text/javascript">
-    window.location="updateArticle.php?updateteamsuccess";
+    window.location="index.php?updateteamsuccess";
     </script>
     <?php
     

@@ -18,6 +18,7 @@ function getRecentArticles ($db) {
               </div>";
     }
 }
+$promptMessage();
 ?>
  
 <!--php ends-->

@@ -19,7 +19,10 @@ function outputArticle ($db) {
         <span>
         <a href='index.php' style='text-decoration:none;'>Click here to return home</a>
         <br></br>
-        <a href='updateArticle.php' style='text-decoration:none;'>Edit</a>
+        <form action='updateArticle.php' method='GET'>
+        <input type='hidden' name='short_title' value='$shortTitle'>
+        <input type='submit' name='edit' value='edit'>
+        </form>
         </div>";
     }
     else {
