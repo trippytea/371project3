@@ -51,14 +51,14 @@ function getRecentArticles ($db) {
     <p class="centerContent">Your home for the <em>&nbspworst&nbsp</em> articles on the Internet!</p>
 
     <div class="row mx-auto mt-4">
-        <div class="col 4"> 
+        <div class="col 8"> 
             <div class="articleBox mb-4 mx-4">
                 <h2>Recent Articles</h2>
                 <?= getRecentArticles($db) ?>
             </div>
         </div> <!--col end-->
 
-    <div class="col 4"> 
+    <div class="col 6"> 
             <div class="articleBox mb-4 mx-4">
                 <h2>Add Article</h2>
                 <p style='width:200px'>You must be logged in to add an article to Wiki Woo.</p>
