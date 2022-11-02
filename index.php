@@ -18,6 +18,7 @@ function getRecentArticles ($db) {
               </div>";
     }
 }
+$promptMessage();
 ?>
  
 <!--php ends-->
@@ -65,6 +66,11 @@ function getRecentArticles ($db) {
                 <a href="addarticle.php"><button class="btn-primary btn-lg btn-block mb-3">Add Article</button></a>
             </div>
 
+            <!--<div class="articleBox mb-4 mx-4">
+                <h2>Update Article</h2>
+                <p style='width:200px'>You must be logged in to add an article to Wiki Woo.</p>
+                <a href="updateArticle.php"><button class="btn-primary btn-lg btn-block mb-3">Update Article</button></a>
+            </div>-->
 
 
             <div class="articleBox mb-4 mx-4">

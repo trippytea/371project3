@@ -4,7 +4,14 @@ include 'nav.php'; //nav-bar
 
 ensure_logged_in();
 mysqli_report(MYSQLI_REPORT_STRICT);
-$sql = "SELECT articleBody FROM article";
+if (isset ($_GET['short_title'])) { 
+    $shortTitle = $_GET['short_title'];
+}
+if (isset ($_POST['short_title'])) { 
+    $shortTitle = $_POST['short_title'];
+}
+
+$sql = "SELECT * FROM article WHERE shortTitle = '$shortTitle'";
 $article = mysqli_query($db, $sql);
 $row = mysqli_fetch_array($article);
 ?>
@@ -36,18 +43,22 @@ $row = mysqli_fetch_array($article);
         <h1 style='margin-left: 10px;margin-top: 15px'>Update Article</h1>
         <?=$promptMessage();?>
 
-        <form style='margin-left: 15px' id='createArticle' action='addArticle.php' method='POST'>
-            <span> New/Existing Title </span><br>
+        <form style='margin-left: 15px' id='createArticle' action='updateArticle.php' method='POST'>
+        <!--<span> Enter the name of the article you want to change below: </span><br>
             <input style='width: 500px' type='text' id='articleTitle' name='articleTitle' required>
+            <br><br>-->
+            <span> Edit Title </span><br>
+            <textarea style='width: 500px' type='text' id='newArticleTitle' name='newArticleTitle' required><?=$row['articleTitle']?></textarea>
             <br><br>
-            <span> New/Exisiting Short Title </span><br>
-            <input style='width: 500px' type='text' id='short_title' name='short_title' required>
+            <span> Edit Short Title </span><br>
+            <textarea style='width: 500px' type='text' id='short_title' name='short_title' required><?=$row['shortTitle']?></textarea>
             <br><br>
             <span> Edit Article Body </span><br>
             <!-- i wonder if we could use a template for a text editor box -->
             <textarea type='text' style='width: 98%;   height: 250px' id='articleBody' name='articleBody'><?=$row['articleBody']?></textarea>
             <br><br>
-            <input class='Add navbar-dark navbar-brand ' type='submit' id='addArticleButton' name='addArticleButton' value='Update Article'>
+            <input class='Add navbar-dark navbar-brand ' type='hidden' id='articleTitle' name='articleTitle' value='<?=$row['articleTitle']?>'>
+            <button class="btn-primary btn-lg btn-block mb-3" type="submit" id='addArticleButton' name='addArticleButton' value='Add'>Update</button>
         </form>
     </div>
 
@@ -59,9 +70,17 @@ $row = mysqli_fetch_array($article);
 <?php
 if (isset($_POST['addArticleButton'])){
     $articleTitle = $_POST['articleTitle'];
+    $newArticleTitle = $_POST['newArticleTitle'];
     $articleBody = $_POST['articleBody'];
-	$updateSql = "UPDATE article SET articleTitle='$articleTitle', articleBody='$articleBody' WHERE articleId=1";
-    echo $updateSql;
+    $shortTitle = $_POST['short_title'];
+	$updateSql = "update article set articleTitle='$newArticleTitle',articleBody='$articleBody',shortTitle='$shortTitle' WHERE articleTitle='$articleTitle'";
 	$updatedArticle = mysqli_query($db, $updateSql);
+    
+    ?>
+    <script type="text/javascript">
+    window.location="index.php?updateteamsuccess";
+    </script>
+    <?php
+    
 }
-?>
+    ?>

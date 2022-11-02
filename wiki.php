@@ -16,7 +16,13 @@ function outputArticle ($db) {
         <div class='articleFull mb-4 mx-auto'>
         <p style='color: #3BB3C2'>Written by $user</p> 
         <p class='mb-3'>$body</p>
+        <span>
         <a href='index.php' style='text-decoration:none;'>Click here to return home</a>
+        <br></br>
+        <form action='updateArticle.php' method='GET'>
+        <input type='hidden' name='short_title' value='$shortTitle'>
+        <button class='btn-primary btn-lg btn-block mb-3' type='submit' id='addArticleButton' name='addArticleButton' value='Update'>Update</button>
+        </form>
         </div>";
     }
     else {

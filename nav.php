@@ -14,12 +14,25 @@
                 <div class="navbar-nav">
                     <a href="index.php" class="nav-item nav-link">Home</a>
                     <a href="addarticle.php" class="nav-item nav-link">Add Article</a>
-                    <a href="register.php" class="nav-item nav-link">Sign up</a> 
+                    <!--<a href="updateArticle.php" class="nav-item nav-link">Update Article</a> -->
+                    <a href="register.php" class="nav-item nav-link">Sign up</a>
+                     
 
                 </div>
-                <div class="navbar-nav ms-auto">         
-                    <a href="login.php" class="nav-item nav-link">Log In</a>   	
+                <div class="navbar-nav ms-auto">
+                <?php 
+                if (!isset($_SESSION["name"])) {
+                    ?>
+                    <a href="login.php" class="nav-item nav-link">Log In</a>
+                    <?php
+                } else {
+                    
+                    ?>
+                    <a href="index.php" class="nav-item nav-link"><?=$_SESSION["name"];?></a>
                     <a href="logout.php" class="nav-item nav-link">Log Out</a>
+                    <?php
+                }
+                ?>      
                 </div>
             </div>
         </div>
